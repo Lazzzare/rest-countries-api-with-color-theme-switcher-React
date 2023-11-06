@@ -1,35 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import Header from "./components/Header";
+import Input from "./components/Input";
+import Filter from "./components/Filter";
+import Countries from "./components/Countries";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
+  const [darkMode, setDarkMode] = useState<boolean>(false);
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div
+      className={`w-full h-screen ${
+        darkMode ? "bg-[#202C36]" : "bg-[#FAFAFA]"
+      }`}
+    >
+      <Header darkMode={darkMode} setDarkMode={setDarkMode} />
+      <div className="flex flex-col lg:flex-row justify-between px-4 pt-6 pb-10 lg:py-6 lg:px-20 gap-10">
+        <Input darkMode={darkMode} />
+        <Filter darkMode={darkMode} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+      <Countries />
+    </div>
+  );
+};
 
-export default App
+export default App;
