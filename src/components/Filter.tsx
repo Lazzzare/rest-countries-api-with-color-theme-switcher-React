@@ -1,4 +1,4 @@
-import { AiOutlineArrowDown } from "react-icons/ai";
+import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 import { useState } from "react";
 
 interface Props {
@@ -24,11 +24,19 @@ const Filter = ({ darkMode }: Props) => {
         >
           Filter by Region
         </h3>
-        <AiOutlineArrowDown
-          className={`${
-            darkMode ? "text-white" : "text-black"
-          } w-[10px] h-[10px] lg:w-3 lg:h-3`}
-        />
+        {filterShow ? (
+          <AiOutlineArrowUp
+            className={`${
+              darkMode ? "text-white" : "text-black"
+            } w-[10px] h-[10px] lg:w-3 lg:h-3`}
+          />
+        ) : (
+          <AiOutlineArrowDown
+            className={`${
+              darkMode ? "text-white" : "text-black"
+            } w-[10px] h-[10px] lg:w-3 lg:h-3`}
+          />
+        )}
       </div>
       {filterShow ? (
         <div
