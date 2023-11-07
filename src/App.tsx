@@ -13,6 +13,8 @@ const baseURL = "https://restcountries.com/v3.1/all";
 const App = () => {
   const [darkMode, setDarkMode] = useState<boolean>(false);
   const [countries, setCountries] = useState<Country[] | null>(null);
+  const [filterShow, setFilterShow] = useState<boolean>(false);
+  const [selectedRegion, setSelectedRegion] = useState<string>("All");
 
   useEffect(() => {
     axios.get<Country[]>(baseURL).then((response) => {
@@ -21,7 +23,11 @@ const App = () => {
     });
   }, []);
   if (!countries) return null;
-  const selectedCountries = countries.slice(0, 8);
+
+  const handleRegionClick = (region: string) => {
+    setSelectedRegion(region);
+    setFilterShow(false);
+  };
 
   return (
     <div
@@ -32,7 +38,13 @@ const App = () => {
       <Header darkMode={darkMode} setDarkMode={setDarkMode} />
       <div className="flex flex-col lg:flex-row justify-between px-4 pt-6 pb-10 lg:py-6 lg:px-20 gap-10">
         <Input darkMode={darkMode} />
-        <Filter darkMode={darkMode} />
+        <Filter
+          darkMode={darkMode}
+          countries={countries}
+          filterShow={filterShow}
+          setFilterShow={setFilterShow}
+          handleRegionClick={handleRegionClick}
+        />
       </div>
       <Routes>
         <Route
@@ -40,8 +52,8 @@ const App = () => {
           element={
             <Countries
               darkMode={darkMode}
-              selectedCountries={selectedCountries}
               countries={countries}
+              selectedRegion={selectedRegion}
             />
           }
         ></Route>

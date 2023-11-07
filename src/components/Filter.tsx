@@ -1,14 +1,23 @@
 import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
+import { Country } from "./DataTypes";
 
 interface Props {
   darkMode: boolean;
+  countries: Country[];
+  filterShow: boolean;
+  setFilterShow: (e: boolean) => void;
+  handleRegionClick: (e: string) => void;
 }
 
 const countryArray = ["Africa", "America", "Asia", "Europe", "Oceania"];
 
-const Filter = ({ darkMode }: Props) => {
-  const [filterShow, setFilterShow] = useState<boolean>(false);
+const Filter = ({
+  darkMode,
+  filterShow,
+  setFilterShow,
+  handleRegionClick,
+}: Props) => {
   return (
     <div className="z-50 lg:absolute right-6 lg:right-20">
       <div
@@ -48,6 +57,7 @@ const Filter = ({ darkMode }: Props) => {
             {countryArray.map((country, index) => (
               <Fragment key={index}>
                 <li
+                  onClick={() => handleRegionClick(country)}
                   className={`text-xs lg:text-sm leading-4 ${
                     darkMode ? "text-white" : "text-[#111517]"
                   } cursor-pointer`}
