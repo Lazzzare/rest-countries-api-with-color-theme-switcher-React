@@ -8,7 +8,7 @@ const App = () => {
   const [darkMode, setDarkMode] = useState<boolean>(false);
   return (
     <div
-      className={`w-full h-screen ${
+      className={`w-full min-h-screen ${
         darkMode ? "bg-[#202C36]" : "bg-[#FAFAFA]"
       }`}
     >
@@ -17,7 +17,7 @@ const App = () => {
         <Input darkMode={darkMode} />
         <Filter darkMode={darkMode} />
       </div>
-      <Countries />
+      <Countries darkMode={darkMode} />
     </div>
   );
 };

@@ -17,7 +17,7 @@ const Input = ({ darkMode }: Props) => {
         <input
           type="text"
           placeholder="Search for a country…"
-          className={`outline-none ${
+          className={`outline-none w-full ${
             darkMode ? "bg-[#2B3844] text-white" : "bg-white text-[#C4C4C4]"
           }`}
         />
