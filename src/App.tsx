@@ -22,6 +22,7 @@ const App = () => {
   }, []);
   if (!countries) return null;
   const selectedCountries = countries.slice(0, 8);
+
   return (
     <div
       className={`w-full min-h-screen duration-700 ${
@@ -40,13 +41,11 @@ const App = () => {
             <Countries
               darkMode={darkMode}
               selectedCountries={selectedCountries}
+              countries={countries}
             />
           }
         ></Route>
-        <Route
-          path={`/${countries[0].name.common}`}
-          element={<SingleCountry />}
-        ></Route>
+        <Route path={`/rame`} element={<SingleCountry />}></Route>
       </Routes>
     </div>
   );
