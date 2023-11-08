@@ -44,6 +44,7 @@ const App = () => {
           filterShow={filterShow}
           setFilterShow={setFilterShow}
           handleRegionClick={handleRegionClick}
+          selectedRegion={selectedRegion}
         />
       </div>
       <Routes>
@@ -57,7 +58,7 @@ const App = () => {
             />
           }
         ></Route>
-        <Route path={`/rame`} element={<SingleCountry />}></Route>
+        <Route path={`/:single`} element={<SingleCountry />}></Route>
       </Routes>
     </div>
   );
