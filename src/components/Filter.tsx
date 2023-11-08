@@ -8,15 +8,17 @@ interface Props {
   filterShow: boolean;
   setFilterShow: (e: boolean) => void;
   handleRegionClick: (e: string) => void;
+  selectedRegion: string;
 }
 
-const countryArray = ["Africa", "America", "Asia", "Europe", "Oceania"];
+const regionArray = ["All", "Africa", "Americas", "Asia", "Europe", "Oceania"];
 
 const Filter = ({
   darkMode,
   filterShow,
   setFilterShow,
   handleRegionClick,
+  selectedRegion,
 }: Props) => {
   return (
     <div className="z-50 lg:absolute right-6 lg:right-20">
@@ -54,15 +56,17 @@ const Filter = ({
           } w-[200px] mt-1`}
         >
           <ul className="gap-2 flex flex-col">
-            {countryArray.map((country, index) => (
+            {regionArray.map((region, index) => (
               <Fragment key={index}>
                 <li
-                  onClick={() => handleRegionClick(country)}
+                  onClick={() => handleRegionClick(region)}
                   className={`text-xs lg:text-sm leading-4 ${
                     darkMode ? "text-white" : "text-[#111517]"
-                  } cursor-pointer`}
+                  } cursor-pointer ${
+                    selectedRegion === region ? "text-black font-extrabold" : ""
+                  }`}
                 >
-                  {country}
+                  {region}
                 </li>
               </Fragment>
             ))}
