@@ -31,11 +31,15 @@ const App = () => {
 
   return (
     <div
-      className={`w-full min-h-screen duration-700 ${
+      className={`w-full min-h-screen duration-700 overflow-x-hidden ${
         darkMode ? "bg-[#202C36]" : "bg-[#FAFAFA]"
       }`}
     >
-      <Header darkMode={darkMode} setDarkMode={setDarkMode} />
+      <Header
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+        setSelectedRegion={setSelectedRegion}
+      />
       <div className="flex flex-col lg:flex-row justify-between px-4 pt-6 pb-10 lg:py-6 lg:px-20 gap-10">
         <Input darkMode={darkMode} />
         <Filter
