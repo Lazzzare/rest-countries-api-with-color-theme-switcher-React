@@ -30,16 +30,16 @@ const Filter = ({
       >
         <div
           onClick={() => setFilterShow(!filterShow)}
-          className={`input-shadow flex flex-row justify-between w-[200px] items-center gap-2
+          className={`input-shadow flex flex-row justify-between w-[240px] items-center gap-2
         ${darkMode ? "bg-[#2B3844]" : "bg-white"} rounded-[5px]
         px-6 py-[14px] cursor-pointer`}
         >
           <h3
-            className={`text-xs lg:text-sm leading-5 font-normal ${
+            className={`text-xs flex flex-row items-center gap-1 lg:text-sm leading-5 font-normal ${
               darkMode ? "text-white" : "text-[#111517]"
             }`}
           >
-            Filter by Region
+            Filter by Region ({selectedRegion})
           </h3>
           {filterShow ? (
             <AiOutlineArrowUp
