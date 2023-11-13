@@ -15,7 +15,7 @@ export interface Country {
   region: string;
   subregion: string;
   nativeName: string;
-  topLevelDomain: string[];
+  tld: string[];
   currencies: Currency[];
   languages: Language[];
   borders: string[];
