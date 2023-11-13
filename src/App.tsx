@@ -29,8 +29,6 @@ const App = () => {
   }, [singleCountry, navigate]);
   if (!countries) return null;
 
-  console.log(singleCountry);
-
   const handleRegionClick = (region: string) => {
     setSelectedRegion(region);
     setFilterShow(false);
