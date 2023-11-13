@@ -20,6 +20,7 @@ const SingleCountry = ({
     navigate("/");
     setSingleCountry("");
   };
+
   return (
     <div className="px-[54px] lg:px-[78px] pt-8 lg:pt-20 pb-16 lg:pb-10">
       <div
@@ -47,11 +48,11 @@ const SingleCountry = ({
                     {singleCountry}
                   </h1>
                   {/*  */}
-                  <div className="flex flex-col md:flex-row gap-8 md:gap-36">
+                  <div className="flex flex-col md:flex-row gap-8 md:gap-20">
                     <div className="flex flex-col">
                       <div className="flex flex-row items-center gap-1 mt-4 md:mt-6">
                         <h2>Native Name:</h2>
-                        <p>{country.name.nativeName?.eng.official}</p>
+                        <p>{country.name.nativeName?.eng?.official || "N/A"}</p>
                       </div>
                       <div className="flex flex-row items-center gap-1 mt-4 md:mt-6">
                         <h2>Population:</h2>
@@ -71,24 +72,46 @@ const SingleCountry = ({
                       </div>
                     </div>
                     {/*  */}
-                    <div className="mt-8">
-                      <div>
+                    <div className="mt-6 flex flex-col gap-4">
+                      <div className="flex flex-row items-center gap-1">
                         <h2>Top Level Domain:</h2>
+                        <p>{country?.tld || "N/A"}</p>
+                      </div>
+                      <div className="flex flex-row items-center gap-1">
+                        <h2>Currencies:</h2>
                         <p>
-                          {country.topLevelDomain.map((domain) => (
-                            <p>{domain}</p>
-                          ))}
+                          {country.currencies
+                            ? Object.values(country.currencies)
+                                .map((currency) => currency.name)
+                                .join(", ")
+                            : "Unknown"}
                         </p>
                       </div>
-                      <div>
-                        <h2>Top Level Domain:</h2>
-                        <p>{country.topLevelDomain}</p>
-                      </div>
-                      <div>
-                        <h2>Top Level Domain:</h2>
-                        <p>{country.topLevelDomain}</p>
+                      <div className="flex flex-row items-center gap-1">
+                        <h2>Languages:</h2>
+                        <p>
+                          {country.languages
+                            ? Object.values(country.languages).join(", ")
+                            : "Unknown"}
+                        </p>
                       </div>
                     </div>
+                  </div>
+                  {/* Border */}
+                  <div className="flex flex-col md:flex-row">
+                    <div>
+                      <h1>Border Countries: </h1>
+                    </div>
+                    {/* {console.log(country)} */}
+                    {country?.borders.length > 0 ? (
+                      <div>
+                        {country.borders.map((count, index) => (
+                          <div key={index}>{count}</div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div>Unknown</div>
+                    )}
                   </div>
                 </div>
               </div>
