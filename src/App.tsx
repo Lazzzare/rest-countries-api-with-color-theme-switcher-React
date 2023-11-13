@@ -7,26 +7,37 @@ import Input from "./components/Input";
 import Filter from "./components/Filter";
 import Countries from "./components/Countries";
 import SingleCountry from "./components/SingleCountry";
+import { useNavigate } from "react-router-dom";
 
 const baseURL = "https://restcountries.com/v3.1/all";
 
 const App = () => {
+  const navigate = useNavigate();
   const [darkMode, setDarkMode] = useState<boolean>(false);
   const [countries, setCountries] = useState<Country[] | null>(null);
   const [filterShow, setFilterShow] = useState<boolean>(false);
   const [selectedRegion, setSelectedRegion] = useState<string>("All");
+  const [singleCountry, setSingleCountry] = useState<string | null>("");
 
   useEffect(() => {
     axios.get<Country[]>(baseURL).then((response) => {
       setCountries(response.data);
-      console.log(response.data);
+      if (singleCountry) {
+        navigate(`/${singleCountry}`);
+      }
     });
-  }, []);
+  }, [singleCountry, navigate]);
   if (!countries) return null;
+
+  console.log(singleCountry);
 
   const handleRegionClick = (region: string) => {
     setSelectedRegion(region);
     setFilterShow(false);
+  };
+
+  const handleSingleCountryClick = (country: string) => {
+    setSingleCountry(country);
   };
 
   return (
@@ -59,10 +70,21 @@ const App = () => {
               darkMode={darkMode}
               countries={countries}
               selectedRegion={selectedRegion}
+              handleSingleCountryClick={handleSingleCountryClick}
+              singleCountry={singleCountry}
             />
           }
         ></Route>
-        <Route path={`/:single`} element={<SingleCountry />}></Route>
+        <Route
+          path={`/:${singleCountry}`}
+          element={
+            <SingleCountry
+              countries={countries}
+              singleCountry={singleCountry}
+              setSingleCountry={setSingleCountry}
+            />
+          }
+        ></Route>
       </Routes>
     </div>
   );
