@@ -49,17 +49,19 @@ const App = () => {
         setDarkMode={setDarkMode}
         setSelectedRegion={setSelectedRegion}
       />
-      <div className="flex flex-col lg:flex-row justify-between px-4 pt-6 pb-10 lg:py-6 lg:px-20 gap-10">
-        <Input darkMode={darkMode} />
-        <Filter
-          darkMode={darkMode}
-          countries={countries}
-          filterShow={filterShow}
-          setFilterShow={setFilterShow}
-          handleRegionClick={handleRegionClick}
-          selectedRegion={selectedRegion}
-        />
-      </div>
+      {!singleCountry ? (
+        <div className="flex flex-col lg:flex-row justify-between px-4 pt-6 pb-10 lg:py-6 lg:px-20 gap-10">
+          <Input darkMode={darkMode} />
+          <Filter
+            darkMode={darkMode}
+            countries={countries}
+            filterShow={filterShow}
+            setFilterShow={setFilterShow}
+            handleRegionClick={handleRegionClick}
+            selectedRegion={selectedRegion}
+          />
+        </div>
+      ) : null}
       <Routes>
         <Route
           path="/"
@@ -80,6 +82,7 @@ const App = () => {
               countries={countries}
               singleCountry={singleCountry}
               setSingleCountry={setSingleCountry}
+              darkMode={darkMode}
             />
           }
         ></Route>
