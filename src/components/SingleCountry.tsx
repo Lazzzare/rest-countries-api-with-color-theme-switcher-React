@@ -1,4 +1,3 @@
-// import { useEffect } from "react";
 import { Country } from "./DataTypes";
 import { useNavigate } from "react-router-dom";
 
