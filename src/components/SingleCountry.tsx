@@ -21,6 +21,8 @@ const SingleCountry = ({
     setSingleCountry("");
   };
 
+  console.log(countries);
+
   return (
     <div className="px-[54px] lg:px-[78px] pt-8 lg:pt-20 pb-16 lg:pb-10">
       <div
@@ -52,7 +54,7 @@ const SingleCountry = ({
                     <div className="flex flex-col">
                       <div className="flex flex-row items-center gap-1 mt-4 md:mt-6">
                         <h2>Native Name:</h2>
-                        <p>{country.name.nativeName?.eng?.official || "N/A"}</p>
+                        <p>{country.name.official || "N/A"}</p>
                       </div>
                       <div className="flex flex-row items-center gap-1 mt-4 md:mt-6">
                         <h2>Population:</h2>
@@ -98,21 +100,16 @@ const SingleCountry = ({
                     </div>
                   </div>
                   {/* Border */}
-                  <div className="flex flex-col md:flex-row">
+                  {/* <div className="flex flex-col md:flex-row">
                     <div>
                       <h1>Border Countries: </h1>
                     </div>
-                    {/* {console.log(country)} */}
-                    {country?.borders.length > 0 ? (
-                      <div>
-                        {country.borders.map((count, index) => (
-                          <div key={index}>{count}</div>
-                        ))}
-                      </div>
+                    {country.borders ? (
+                      country.borders.join(", ")
                     ) : (
-                      <div>Unknown</div>
+                      <span>None</span>
                     )}
-                  </div>
+                  </div> */}
                 </div>
               </div>
             )}
