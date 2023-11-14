@@ -1,11 +1,13 @@
 import { AiOutlineSearch } from "react-icons/ai";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 interface Props {
   darkMode: boolean;
 }
 
 const Input = ({ darkMode }: Props) => {
+  const [search, setSearch] = useState("");
   return (
     <motion.div
       initial={{ opacity: 0, x: -100 }}
@@ -17,13 +19,15 @@ const Input = ({ darkMode }: Props) => {
         ${darkMode ? "bg-[#2B3844]" : "bg-white"}`}
       >
         <AiOutlineSearch
-          className={`w-4 h-4 ${darkMode ? "text-white" : ""}`}
+          className={`w-4 h-4 lg:w-6 lg:h-6 ${darkMode ? "text-white" : ""}`}
         />
         <input
+          onChange={(e) => setSearch(e.target.value)}
+          value={search}
           type="text"
           placeholder="Search for a country…"
           className={`outline-none w-full ${
-            darkMode ? "bg-[#2B3844] text-white" : "bg-white text-[#C4C4C4]"
+            darkMode ? "bg-[#2B3844] text-white" : "bg-white text-[#2B3844]"
           }`}
         />
       </div>
