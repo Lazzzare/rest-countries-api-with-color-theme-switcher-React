@@ -1,13 +1,21 @@
 import { AiOutlineSearch } from "react-icons/ai";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { Country } from "./DataTypes";
 
 interface Props {
   darkMode: boolean;
+  countries: Country[];
+  search: string;
+  setSearch: (search: string) => void;
 }
 
-const Input = ({ darkMode }: Props) => {
-  const [search, setSearch] = useState("");
+const Input = ({ darkMode, countries, search, setSearch }: Props) => {
+  // console.log(countries);
+  const countriesName = countries.filter((item) =>
+    item.name.official.includes(search)
+  );
+  console.log(countriesName);
+
   return (
     <motion.div
       initial={{ opacity: 0, x: -100 }}
