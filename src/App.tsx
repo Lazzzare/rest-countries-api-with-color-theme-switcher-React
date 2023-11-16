@@ -14,6 +14,7 @@ const baseURL = "https://restcountries.com/v3.1/all";
 const App = () => {
   const navigate = useNavigate();
   const [darkMode, setDarkMode] = useState<boolean>(false);
+  const [search, setSearch] = useState("");
   const [countries, setCountries] = useState<Country[] | null>(null);
   const [filterShow, setFilterShow] = useState<boolean>(false);
   const [selectedRegion, setSelectedRegion] = useState<string>("All");
@@ -52,7 +53,12 @@ const App = () => {
       />
       {!singleCountry ? (
         <div className="flex flex-col lg:flex-row justify-between px-4 pt-6 pb-10 lg:py-6 lg:px-20 gap-10">
-          <Input darkMode={darkMode} />
+          <Input
+            darkMode={darkMode}
+            countries={countries}
+            search={search}
+            setSearch={setSearch}
+          />
           <Filter
             darkMode={darkMode}
             countries={countries}
@@ -73,6 +79,7 @@ const App = () => {
               selectedRegion={selectedRegion}
               handleSingleCountryClick={handleSingleCountryClick}
               singleCountry={singleCountry}
+              search={search}
             />
           }
         ></Route>
