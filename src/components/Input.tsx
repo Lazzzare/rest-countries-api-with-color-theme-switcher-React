@@ -10,7 +10,6 @@ interface Props {
 }
 
 const Input = ({ darkMode, countries, search, setSearch }: Props) => {
-  // console.log(countries);
   const countriesName = countries.filter((item) =>
     item.name.official.includes(search)
   );
