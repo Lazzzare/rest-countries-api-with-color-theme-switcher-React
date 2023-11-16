@@ -27,6 +27,7 @@ const App = () => {
       }
     });
   }, [singleCountry, navigate]);
+
   if (!countries) return null;
 
   const handleRegionClick = (region: string) => {
