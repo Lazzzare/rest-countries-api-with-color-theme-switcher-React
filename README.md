@@ -38,7 +38,7 @@ npm run dev
 
 # Link
 
-- Live Site URL: [Live Site](https://ecommerce-product-page-lazzzare.vercel.app/)
+- Live Site URL: [Live Site](https://rest-countries-api-with-color-theme-switcher-react.vercel.app/)
 
 # Built With
 
