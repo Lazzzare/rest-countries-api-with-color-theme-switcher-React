@@ -1,27 +1,51 @@
-# React + TypeScript + Vite
+# Rest-Countries-API
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+  <img src="./src/assets/Background.PNG">
 
-Currently, two official plugins are available:
+# About
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Discover the World with Rest-Countries-API! 🌐
 
-## Expanding the ESLint configuration
+I'm thrilled to share a project I've been working on recently! 🚀
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+🖥️ Explore Countries: I've built a comprehensive web app using React, TypeScript, and Tailwind CSS that lets you seamlessly search for any country and access concise information about it! Whether you're curious about the culture, population, or geographic location, this app has got you covered.
 
-- Configure the top-level `parserOptions` property like this:
+🔍 Detailed Insights at Your Fingertips: With just a few clicks, you can dive into specific country details, allowing you to gain insights into its currency, languages spoken, and even its neighboring countries.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+🌓 Customizable Dark Mode: We understand preferences vary, so I've incorporated a sleek dark mode feature for comfortable browsing at any time of day or night.
+
+# Getting Started
+
+![.gif](./src/assets/gif.gif);
+
+1. First of all you need to clone app repository from github:
+
+```
+https://github.com/Lazzzare/rest-countries-api-with-color-theme-switcher-React
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Next step requires install all the dependencies.
+
+```
+npm install
+```
+
+3. Running the Project
+
+```
+npm run dev
+```
+
+# Link
+
+- Live Site URL: [Live Site](https://ecommerce-product-page-lazzzare.vercel.app/)
+
+# Built With
+
+- _Vite_
+- _React_
+- _Typescript (TSX)_
+- _TailwindCss_
+- _React Hooks (useState, useEffect)_
+- _framer-motion_
+- _react-icons_
