@@ -13,7 +13,6 @@ const Input = ({ darkMode, countries, search, setSearch }: Props) => {
   const countriesName = countries.filter((item) =>
     item.name.official.includes(search)
   );
-  console.log(countriesName);
 
   return (
     <motion.div
