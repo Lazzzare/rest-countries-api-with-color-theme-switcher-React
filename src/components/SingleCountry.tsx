@@ -21,8 +21,6 @@ const SingleCountry = ({
     setSingleCountry("");
   };
 
-  console.log(countries);
-
   return (
     <div className="px-[54px] lg:px-[78px] pt-8 lg:pt-20 pb-16 lg:pb-10">
       <div
@@ -99,17 +97,6 @@ const SingleCountry = ({
                       </div>
                     </div>
                   </div>
-                  {/* Border */}
-                  {/* <div className="flex flex-col md:flex-row">
-                    <div>
-                      <h1>Border Countries: </h1>
-                    </div>
-                    {country.borders ? (
-                      country.borders.join(", ")
-                    ) : (
-                      <span>None</span>
-                    )}
-                  </div> */}
                 </div>
               </div>
             )}
