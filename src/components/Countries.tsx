@@ -27,7 +27,9 @@ const Countries = ({
   return (
     <div className="z-10 px-[54px] lg:px-[78px] pt-8 lg:pt-12 pb-16 lg:pb-10 md:grid md:grid-cols-3 lg:grid-cols-4 flex flex-col gap-10 lg:gap-16">
       {filteredCountries
-        .filter((country) => country.name.official.includes(search))
+        .filter((country) =>
+          country.name.official.toLowerCase().includes(search.toLowerCase())
+        )
         .map((country, index) => (
           <Fragment key={index}>
             <Link to={`/${singleCountry}`}>
