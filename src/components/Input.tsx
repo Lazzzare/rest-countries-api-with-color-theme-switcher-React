@@ -9,11 +9,7 @@ interface Props {
   setSearch: (search: string) => void;
 }
 
-const Input = ({ darkMode, countries, search, setSearch }: Props) => {
-  const countriesName = countries.filter((item) =>
-    item.name.official.includes(search)
-  );
-
+const Input = ({ darkMode, search, setSearch }: Props) => {
   return (
     <motion.div
       initial={{ opacity: 0, x: -100 }}
